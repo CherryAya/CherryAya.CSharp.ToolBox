@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31515.178
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CherryAya.CSharp.ToolBox", "src\CherryAya.CSharp.ToolBox.csproj", "{FBF08513-7B82-4D90-8BA3-009C279F4B82}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CherryAya.CSharp.ToolBox_Test", "CherryAya.CSharp.ToolBox_Test\CherryAya.CSharp.ToolBox_Test.csproj", "{539AB01D-B487-43FB-8AA7-16EB23CEDA99}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FBF08513-7B82-4D90-8BA3-009C279F4B82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBF08513-7B82-4D90-8BA3-009C279F4B82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBF08513-7B82-4D90-8BA3-009C279F4B82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBF08513-7B82-4D90-8BA3-009C279F4B82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{539AB01D-B487-43FB-8AA7-16EB23CEDA99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{539AB01D-B487-43FB-8AA7-16EB23CEDA99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{539AB01D-B487-43FB-8AA7-16EB23CEDA99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{539AB01D-B487-43FB-8AA7-16EB23CEDA99}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3AAD14B2-3326-4C5F-95CF-055101C2FCDD}
+	EndGlobalSection
+EndGlobal
