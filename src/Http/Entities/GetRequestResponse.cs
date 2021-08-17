@@ -13,5 +13,10 @@ namespace CherryAya.CSharp.ToolBox.Http.Entities
         public string ErrorMessage { get; set; }
         public string Context { get; set; }
         public List<Headers> Headers { get; set; }
+
+        public GetRequestResponse()
+        {
+            Headers = new List<Headers>();
+        }
     }
 }
