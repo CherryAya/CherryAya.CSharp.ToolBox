@@ -45,7 +45,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Http\Entities\GetRequestResponse.cs" />
+    <Compile Include="Http\Entities\Files.cs" />
+    <Compile Include="Http\Entities\RequestResponse.cs" />
     <Compile Include="Http\Entities\Headers.cs" />
     <Compile Include="Http\Entities\Parameters.cs" />
     <Compile Include="Http\HttpRequestClient.cs" />

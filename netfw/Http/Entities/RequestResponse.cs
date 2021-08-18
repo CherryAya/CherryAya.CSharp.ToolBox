@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Net;
 
-namespace CherryAya.CSharp.ToolBox.Http.Entities
+namespace CherryAya.CSharp.ToolBox.netfw.Http.Entities
 {
     /// <summary>
-    /// GET请求响应模型
+    /// 请求响应模型
     /// </summary>
-    public class GetRequestResponse
+    public class RequestResponse
     {
         /// <summary>
         /// HTTP状态
@@ -28,7 +28,7 @@ namespace CherryAya.CSharp.ToolBox.Http.Entities
         /// <summary>
         /// 构造方法
         /// </summary>
-        public GetRequestResponse()
+        public RequestResponse()
         {
             Headers = new List<Headers>();
         }

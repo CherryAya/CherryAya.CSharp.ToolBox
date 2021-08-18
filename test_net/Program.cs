@@ -15,12 +15,19 @@ Logger.Warn("Program", "Test", "Warn");
 Logger.Exception("Program", "Test", "Exception");
 Logger.Fatal("Program", "Test", "Fatal");
 
-GetRequestResponse response = HttpRequestClient.GET("https://v1.jinrishici.com/all");
-Logger.Info("HttpRequestClient", "HttpStatusCode", response.Code);
-Logger.Warn("HttpRequestClient", "ErrorMessage", response.ErrorMessage);
-for (int i = 0; i < response.Headers.Count; i++)
+RequestResponse GetResponse = HttpRequestClient.GET("https://v1.jinrishici.com/all");
+Logger.Info("HttpRequestClient", "HttpStatusCode", GetResponse.Code);
+Logger.Warn("HttpRequestClient", "ErrorMessage", GetResponse.ErrorMessage);
+for (int i = 0; i < GetResponse.Headers.Count; i++)
 {
-    Logger.Info("HttpRequestClient", "Header", response.Headers[i].ToString());
+    Logger.Info("HttpRequestClient", "Header", GetResponse.Headers[i].ToString());
 }
-dynamic json = JsonConvert.DeserializeObject<dynamic>(response.Content);
+dynamic json = JsonConvert.DeserializeObject<dynamic>(GetResponse.Content);
 Logger.Info("HttpRequestClient", "Content", json.content);
+
+List<Parameters> parameters = new List<Parameters>();
+parameters.Add(new Parameters("tag", "白丝"));
+parameters.Add(new Parameters("r18", 1));
+RequestResponse PostResponse = HttpRequestClient.POST("https://api.lolicon.app/setu/v2", parameters);
+dynamic lolicon = JsonConvert.DeserializeObject<dynamic>(PostResponse.Content);
+Logger.Info("HttpRequestClient", "POST", lolicon.data[0].urls.original);

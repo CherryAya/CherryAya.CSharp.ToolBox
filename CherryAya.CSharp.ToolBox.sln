@@ -11,6 +11,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CherryAya.CSharp.ToolBox.ne
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CherryAya.CSharp.ToolBox_Test.netfw", "test_netfw\CherryAya.CSharp.ToolBox_Test.netfw.csproj", "{632A80F4-92CD-4467-B251-2A0C3B4E5F3B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{49E75481-8423-4FB0-9A26-BCE7B017C7F4}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

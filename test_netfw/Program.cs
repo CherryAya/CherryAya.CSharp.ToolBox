@@ -22,7 +22,7 @@ namespace CherryAya.CSharp.ToolBox_Test.netfw
             Logger.Exception("Program", "Test", "Exception");
             Logger.Fatal("Program", "Test", "Fatal");
 
-            GetRequestResponse response = HttpRequestClient.GET("https://v1.jinrishici.com/all");
+            RequestResponse response = HttpRequestClient.GET("https://v1.jinrishici.com/all");
             Logger.Info("HttpRequestClient", "HttpStatusCode", response.Code);
             Logger.Warn("HttpRequestClient", "ErrorMessage", response.ErrorMessage);
             for (int i = 0; i < response.Headers.Count; i++)
@@ -31,6 +31,9 @@ namespace CherryAya.CSharp.ToolBox_Test.netfw
             }
             dynamic json = JsonConvert.DeserializeObject<dynamic>(response.Content);
             Logger.Info("HttpRequestClient", "Content", json.content);
+
+
+
             Console.ReadKey();
         }
     }

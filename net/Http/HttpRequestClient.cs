@@ -24,9 +24,9 @@ namespace CherryAya.CSharp.ToolBox.Http
         private static IRestResponse restResponse;
 
         /// <summary>
-        /// Get请求响应模型
+        /// 请求响应模型
         /// </summary>
-        private static GetRequestResponse GetResponse;
+        private static RequestResponse response;
 
         /// <summary>
         /// 发起Get请求
@@ -34,19 +34,19 @@ namespace CherryAya.CSharp.ToolBox.Http
         /// <param name="Url">请求地址</param>
         /// <param name="parameters">参数列表</param>
         /// <param name="headers">请求头列表</param>
-        /// <param name="format">数据格式化</param>
+        /// <param name="format">响应格式化</param>
         /// <returns>响应内容</returns>
-        public static GetRequestResponse GET(string Url, List<Parameters> parameters = null, List<Headers> headers = null, DataFormat format = DataFormat.Json)
+        public static RequestResponse GET(string Url, List<Parameters> parameters = null, List<Headers> headers = null, DataFormat format = DataFormat.Json)
         {
             try
             {
                 restClient = new();
-                restRequest = new(Url, format);
+                restRequest = new(Url, Method.GET, format);
                 if (parameters is not null)
                 {
                     for (int i = 0; i < parameters.Count; i++)
                     {
-                        restRequest.AddParameter(parameters[i].Param, parameters[i].Value);
+                        restRequest.AddParameter(parameters[i].Param, parameters[i].Value, ParameterType.GetOrPost);
                     }
                 }
                 if (headers is not null)
@@ -57,7 +57,7 @@ namespace CherryAya.CSharp.ToolBox.Http
                     }
                 }
                 restResponse = restClient.Get(restRequest);
-                GetResponse = new GetRequestResponse
+                response = new()
                 {
                     Code = restResponse.StatusCode,
                     ErrorMessage = restResponse.ErrorMessage,
@@ -67,11 +67,72 @@ namespace CherryAya.CSharp.ToolBox.Http
                 {
                     for (int i = 0; i < restResponse.Headers.Count; i++)
                     {
-                        GetResponse.Headers.Add(new Headers(restResponse.Headers[i].Name, restResponse.Headers[i].Value));
+                        response.Headers.Add(new Headers(restResponse.Headers[i].Name, restResponse.Headers[i].Value));
                     }
                 }
-                return GetResponse;
+                return response;
             }catch(Exception)
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// 发起Post请求
+        /// </summary>
+        /// <param name="Url">请求地址</param>
+        /// <param name="parameters">参数列表</param>
+        /// <param name="headers">请求头列表</param>
+        /// <param name="files">文件列表</param>
+        /// <param name="format">响应格式化</param>
+        /// <returns>响应内容</returns>
+        public static RequestResponse POST(string Url, List<Parameters> parameters = null, List<Headers> headers = null, List<Files> files = null, DataFormat format = DataFormat.Json)
+        {
+            try
+            {
+                restClient = new();
+                restRequest = new(Url, Method.POST, format);
+                if (parameters is not null)
+                {
+                    for (int i = 0; i < parameters.Count; i++)
+                    {
+                        restRequest.AddParameter(parameters[i].Param, parameters[i].Value, ParameterType.GetOrPost);
+                    }
+                }
+                if (headers is not null)
+                {
+                    for (int i = 0; i < headers.Count; i++)
+                    {
+                        restRequest.AddHeader(headers[i].Header, headers[i].Value.ToString());
+                    }
+                }
+                if (files is not null)
+                {
+                    for (int i = 0; i < files.Count; i++)
+                    {
+                        if (files[i].Type.Equals(UploadType.byPath))
+                            restRequest.AddFile(files[i].Name, files[i].Path);
+                        else if (files[i].Type.Equals(UploadType.byBytes))
+                            restRequest.AddFileBytes(files[i].Name, files[i].Bytes, files[i].FileName);
+                    }
+                }
+                restResponse = restClient.Post(restRequest);
+                response = new()
+                {
+                    Code = restResponse.StatusCode,
+                    ErrorMessage = restResponse.ErrorMessage,
+                    Content = restResponse.Content
+                };
+                if (!restResponse.Headers.Count.Equals(0))
+                {
+                    for (int i = 0; i < restResponse.Headers.Count; i++)
+                    {
+                        response.Headers.Add(new Headers(restResponse.Headers[i].Name, restResponse.Headers[i].Value));
+                    }
+                }
+                return response;
+            }
+            catch (Exception)
             {
                 throw;
             }
