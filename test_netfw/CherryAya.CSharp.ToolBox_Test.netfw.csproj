@@ -4,16 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4445B262-3723-49C1-BBFC-79CAB69A542E}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CherryAya.CSharp.ToolBox.netfw</RootNamespace>
-    <AssemblyName>CherryAya.CSharp.ToolBox.netfw</AssemblyName>
+    <ProjectGuid>{632A80F4-92CD-4467-B251-2A0C3B4E5F3B}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>CherryAya.CSharp.ToolBox_Test.netfw</RootNamespace>
+    <AssemblyName>CherryAya.CSharp.ToolBox_Test.netfw</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -31,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="RestSharp, Version=106.12.0.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
       <HintPath>..\packages\RestSharp.106.12.0\lib\net452\RestSharp.dll</HintPath>
     </Reference>
@@ -45,18 +50,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Http\Entities\GetRequestResponse.cs" />
-    <Compile Include="Http\Entities\Headers.cs" />
-    <Compile Include="Http\Entities\Parameters.cs" />
-    <Compile Include="Http\HttpRequestClient.cs" />
-    <Compile Include="Logger\defualtLoggerService.cs" />
-    <Compile Include="Logger\ILoggerService.cs" />
-    <Compile Include="Logger\Logger.cs" />
-    <Compile Include="Logger\LoggerLevel.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\netfw\CherryAya.CSharp.ToolBox.netfw.csproj">
+      <Project>{4445b262-3723-49c1-bbfc-79cab69a542e}</Project>
+      <Name>CherryAya.CSharp.ToolBox.netfw</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
