@@ -29,7 +29,7 @@ namespace CherryAya.CSharp.ToolBox.Logger
                 this.Init();
                 builder.Append(DateTime.Now.ToString("G") + " INFO --> [ ");
                 builder.Append(from.ToString() + " ] ");
-                builder.Append(type.ToString() + " : " + message.ToString());
+                builder.Append(type.ToString() + " : " + message);
                 Console.WriteLine(builder.ToString());
                 return true;
             }
@@ -42,7 +42,7 @@ namespace CherryAya.CSharp.ToolBox.Logger
                 this.Init();
                 builder.Append(DateTime.Now.ToString("G") + " Warn --> [ ");
                 builder.Append(from.ToString() + " ] ");
-                builder.Append(type.ToString() + " : " + message.ToString());
+                builder.Append(type.ToString() + " : " + message);
                 Console.WriteLine(builder.ToString());
                 return true;
             }
@@ -55,7 +55,7 @@ namespace CherryAya.CSharp.ToolBox.Logger
                 this.Init();
                 builder.Append(DateTime.Now.ToString("G") + " Exception --> [ ");
                 builder.Append(from.ToString() + " ] ");
-                builder.Append(type.ToString() + " : " + message.ToString());
+                builder.Append(type.ToString() + " : " + message);
                 Console.WriteLine(builder.ToString());
                 return true;
             }
@@ -68,7 +68,7 @@ namespace CherryAya.CSharp.ToolBox.Logger
                 this.Init();
                 builder.Append(DateTime.Now.ToString("G") + " Fatal --> [ ");
                 builder.Append(from.ToString() + " ] ");
-                builder.Append(type.ToString() + " : " + message.ToString());
+                builder.Append(type.ToString() + " : " + message);
                 Console.WriteLine(builder.ToString());
                 return true;
             }

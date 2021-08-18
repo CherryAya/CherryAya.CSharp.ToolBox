@@ -19,7 +19,7 @@ namespace CherryAya.CSharp.ToolBox.Http.Entities
         /// <summary>
         ///  响应内容
         /// </summary>
-        public string Context { get; set; }
+        public string Content { get; set; }
         /// <summary>
         /// 响应头列表
         /// </summary>

@@ -61,7 +61,7 @@ namespace CherryAya.CSharp.ToolBox.Http
                 {
                     Code = restResponse.StatusCode,
                     ErrorMessage = restResponse.ErrorMessage,
-                    Context = restResponse.Content
+                    Content = restResponse.Content
                 };
                 if (!restResponse.Headers.Count.Equals(0))
                 {
