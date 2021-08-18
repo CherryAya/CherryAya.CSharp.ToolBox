@@ -8,14 +8,40 @@ using CherryAya.CSharp.ToolBox.Http.Entities;
 
 namespace CherryAya.CSharp.ToolBox.Http
 {
-    public class HttpRequestClient
+    public static class HttpRequestClient
     {
+        /// <summary>
+        /// RestClient实例
+        /// </summary>
+        private static RestClient restClient;
+        /// <summary>
+        /// RestRequest实例
+        /// </summary>
+        private static RestRequest restRequest;
+        /// <summary>
+        /// RestResponse实例
+        /// </summary>
+        private static IRestResponse restResponse;
+
+        /// <summary>
+        /// Get请求响应模型
+        /// </summary>
+        private static GetRequestResponse GetResponse;
+
+        /// <summary>
+        /// 发起Get请求
+        /// </summary>
+        /// <param name="Url">请求地址</param>
+        /// <param name="parameters">参数列表</param>
+        /// <param name="headers">请求头列表</param>
+        /// <param name="format">数据格式化</param>
+        /// <returns>响应内容</returns>
         public static GetRequestResponse GET(string Url, List<Parameters> parameters = null, List<Headers> headers = null, DataFormat format = DataFormat.Json)
         {
             try
             {
-                RestClient restClient = new RestClient();
-                RestRequest restRequest = new RestRequest(Url, format);
+                restClient = new();
+                restRequest = new(Url, format);
                 if (parameters is not null)
                 {
                     for (int i = 0; i < parameters.Count; i++)
@@ -30,19 +56,21 @@ namespace CherryAya.CSharp.ToolBox.Http
                         restRequest.AddHeader(headers[i].Header, headers[i].Value.ToString());
                     }
                 }
-                IRestResponse restResponse = restClient.Get(restRequest);
-                GetRequestResponse response = new GetRequestResponse();
-                response.Code = restResponse.StatusCode;
-                response.ErrorMessage = restResponse.ErrorMessage;
-                response.Context = restResponse.Content;
+                restResponse = restClient.Get(restRequest);
+                GetResponse = new GetRequestResponse
+                {
+                    Code = restResponse.StatusCode,
+                    ErrorMessage = restResponse.ErrorMessage,
+                    Context = restResponse.Content
+                };
                 if (!restResponse.Headers.Count.Equals(0))
                 {
                     for (int i = 0; i < restResponse.Headers.Count; i++)
                     {
-                        response.Headers.Add(new Headers(restResponse.Headers[i].Name, restResponse.Headers[i].Value));
+                        GetResponse.Headers.Add(new Headers(restResponse.Headers[i].Name, restResponse.Headers[i].Value));
                     }
                 }
-                return response;
+                return GetResponse;
             }catch(Exception)
             {
                 throw;

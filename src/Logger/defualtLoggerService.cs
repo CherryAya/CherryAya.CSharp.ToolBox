@@ -4,7 +4,7 @@ using System.Threading;
 
 namespace CherryAya.CSharp.ToolBox.Logger
 {
-    public class LoggerService : ILoggerService
+    public class defualtLoggerService : ILoggerService
     {
         private static readonly object Lock = new();
         private StringBuilder builder;

@@ -5,7 +5,7 @@ namespace CherryAya.CSharp.ToolBox.Logger
     public static class Logger
     {
         private static LoggerLevel level = LoggerLevel.Info;
-        private static ILoggerService loggerService = new LoggerService();
+        private static ILoggerService loggerService = new defualtLoggerService();
 
         public static void setLoggerService(ILoggerService newLoggerService)
         {

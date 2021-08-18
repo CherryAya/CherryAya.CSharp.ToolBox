@@ -5,8 +5,7 @@ using CherryAya.CSharp.ToolBox.Http.Entities;
 using System.Collections.Generic;
 
 Logger.setLoggerLevel(LoggerLevel.Debug);
-Console.WriteLine(Logger.getLoggerLevel().ToString());
-
+Logger.Info("Program", "LoggerLevel", Logger.getLoggerLevel());
 Logger.Debug("Program", "Test", "Debug"); 
 Logger.Info("Program", "Test", "Info");
 Logger.Warn("Program", "Test", "Warn");

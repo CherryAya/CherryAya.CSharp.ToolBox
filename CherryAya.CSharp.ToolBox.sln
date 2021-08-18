@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31515.178
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CherryAya.CSharp.ToolBox", "src\CherryAya.CSharp.ToolBox.csproj", "{FBF08513-7B82-4D90-8BA3-009C279F4B82}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CherryAya.CSharp.ToolBox_Test", "CherryAya.CSharp.ToolBox_Test\CherryAya.CSharp.ToolBox_Test.csproj", "{539AB01D-B487-43FB-8AA7-16EB23CEDA99}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CherryAya.CSharp.ToolBox_Test", "test\CherryAya.CSharp.ToolBox_Test.csproj", "{539AB01D-B487-43FB-8AA7-16EB23CEDA99}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
