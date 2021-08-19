@@ -28,6 +28,7 @@ Logger.Info("HttpRequestClient", "Content", json.content);
 List<Parameters> parameters = new List<Parameters>();
 parameters.Add(new Parameters("tag", "白丝"));
 parameters.Add(new Parameters("r18", 1));
+parameters.Add(new Parameters("num", 10));
 RequestResponse PostResponse = HttpRequestClient.POST("https://api.lolicon.app/setu/v2", parameters);
 dynamic lolicon = JsonConvert.DeserializeObject<dynamic>(PostResponse.Content);
 Logger.Info("HttpRequestClient", "POST", lolicon.data[0].urls.original);
